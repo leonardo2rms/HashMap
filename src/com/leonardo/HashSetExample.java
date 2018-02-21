@@ -11,7 +11,7 @@ public class HashSetExample {
         for (Integer numero : listaDuplicada) {
 
             if (listaSinDuplicados.add(numero)) {
-                System.out.println("Agregue el numero : " + numero);
+                System.out.println("Agregue el numero  : " + numero);
             }
         }
 
