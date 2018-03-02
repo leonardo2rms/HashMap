@@ -1,8 +1,7 @@
 package com.streams;
 
-import javax.xml.ws.Response;
 import java.util.Collection;
-import java.util.Optional;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 public class StreamsExamples {
@@ -17,17 +16,33 @@ public class StreamsExamples {
     }
 
     private Collection<String> obtenerProductosSinDuplicados() {
-        Collection<String> productosSinDuplicados = productos.stream()
+        return productos.stream()
                 .distinct()
                 .collect(Collectors.toList());
-        return productosSinDuplicados;
     }
 
-    private Response<String> hola(){
-        Optional<String> optional = Optional.empty();
-        Optional<Response<String>>> = optional
-                .map(val -> new Response(val))
-
+    private Collection<String> multiplicarPorRandom(Collection<String> coleccion) {
+        return coleccion.stream()
+                .mapToDouble(Double::parseDouble)
+                .map(e -> e * new Random().ints(1, 10).findFirst().getAsInt())
+                .mapToObj(String::valueOf)
+                .collect(Collectors.toList());
     }
+
+    private Collection<String> retornarPares(Collection<String> coleccion) {
+        return coleccion.stream()
+                .mapToInt(Integer::parseInt)
+                .filter(e -> (e % 2) == 0)
+                .mapToObj(String::valueOf)
+                .collect(Collectors.toList());
+    }
+
+    private String retornarRaizCuadradaYSumar(Collection<String> coleccion) {
+        return String.valueOf(coleccion.stream()
+                .mapToInt(Integer::parseInt)
+                .map(e -> (int) Math.pow(e, 3))
+                .sum());
+    }
+
 
 }
