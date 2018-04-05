@@ -1,4 +1,4 @@
-package com.leonardo;
+package com.collections;
 
 import java.util.Objects;
 
@@ -12,7 +12,9 @@ public class Libro {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Libro libro = (Libro) o;
-        return isbn == libro.isbn;
+        return isbn == libro.isbn &&
+                Objects.equals(titulo, libro.titulo) &&
+                Objects.equals(autor, libro.autor);
     }
 
     @Override
