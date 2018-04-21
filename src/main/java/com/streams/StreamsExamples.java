@@ -1,8 +1,9 @@
 package com.streams;
 
-import com.leonardo.Cliente;
-
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Optional;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 public class StreamsExamples {
