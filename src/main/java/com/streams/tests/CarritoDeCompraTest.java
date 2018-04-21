@@ -4,7 +4,7 @@ package com.streams.tests;
 import com.streams.CarritoBuilder;
 import com.streams.CarritoDeCompra;
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class CarritoDeCompraTest {
 

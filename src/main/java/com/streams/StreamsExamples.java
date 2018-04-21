@@ -1,14 +1,25 @@
 package com.streams;
 
-import java.util.Collection;
-import java.util.Random;
+import com.leonardo.Cliente;
+
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class StreamsExamples {
 
     private Collection<String> preciosString;
     private Collection<String> productos;
+    private int[] matriz = new int[6];
+    private int[] segundaMatriz = {10, 5, 6 , -1, 100};
 
+    public static void main(String[] args) {
+        StreamsExamples examples = new StreamsExamples();
+
+        System.out.println(examples.retornarMayor(examples.segundaMatriz));
+        System.out.println(examples.retornarMayor(examples.matriz));
+        System.out.println(examples.retornarMenor(examples.segundaMatriz));
+
+    }
     private int obtenerTotalPrecios() {
         return this.preciosString.stream()
                 .mapToInt(Integer::valueOf)
@@ -42,6 +53,20 @@ public class StreamsExamples {
                 .mapToInt(Integer::parseInt)
                 .map(e -> (int) Math.pow(e, 3))
                 .sum());
+    }
+
+    private String retornarMayor(int[] matriz){
+        return Optional.ofNullable(Arrays.stream(matriz).max())
+                .map(e-> e.getAsInt())
+                .map(e -> e.toString())
+                .orElse("");
+    }
+
+    private String retornarMenor(int[] matriz){
+        return Optional.ofNullable(Arrays.stream(matriz).min())
+                .map(e-> e.getAsInt())
+                .map(e -> e.toString())
+                .orElse("");
     }
 
 
